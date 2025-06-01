@@ -1,82 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Computational Drug Discovery Project</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computational Drug Discovery Portfolio</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      line-height: 1.6;
-      background-color: #f9f9f9;
-      color: #333;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0d0d0d;
+      color: #f0f0f0;
+      scroll-behavior: smooth;
     }
-    h1, h2 {
-      color: #2c3e50;
+    header {
+      background: url('path/to/your/background-image.jpg') center/cover no-repeat;
+      padding: 60px 30px;
+      text-align: center;
     }
-    img {
-      max-width: 100%;
-      height: auto;
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
     }
-    .section {
-      margin-bottom: 40px;
+    header p {
+      font-size: 1.2em;
+      max-width: 800px;
+      margin: auto;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #1a1a1a;
+      padding: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: #f0f0f0;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .section-preview {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 40px;
+      background-color: #121212;
+    }
+    .part {
+      width: 300px;
+      margin: 20px;
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 12px;
+      transition: transform 0.3s;
+    }
+    .part:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+    .part img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .part h2 {
+      font-size: 1.2em;
+    }
+    section {
+      padding: 60px 30px;
+      background-color: #181818;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    section img {
+      width: 100%;
+      max-width: 800px;
+      display: block;
+      margin: 20px auto;
     }
   </style>
 </head>
 <body>
-
-  <h1>🧪 Computational Drug Discovery Using Machine Learning</h1>
-
-  <p>
-    Welcome to my project on predicting acetylcholinesterase inhibitors using machine learning techniques. This project involves data acquisition, molecular descriptor calculation, exploratory data analysis, model building, and algorithm comparison.
-  </p>
-
-  <div class="section">
-    <h2>📁 Part 1: Data Acquisition and Preprocessing</h2>
+  <header>
+    <h1>Computational Drug Discovery Using Machine Learning</h1>
     <p>
-      In this phase, I gathered bioactivity data from the ChEMBL database and performed preprocessing steps to ensure data quality.
+      Explore the prediction of acetylcholinesterase inhibitors through machine learning. This portfolio project includes data acquisition, descriptor calculation, EDA, model building, and algorithm comparisons.
     </p>
-    <img src="assets/images/part1.png" alt="Data Acquisition Image">
+  </header>
+
+  <nav>
+    <a href="#part1">Part 1</a>
+    <a href="#part2">Part 2</a>
+    <a href="#part3">Part 3</a>
+    <a href="#part4">Part 4</a>
+    <a href="#part5">Part 5</a>
+  </nav>
+
+  <div class="section-preview">
+    <div class="part" onclick="location.href='#part1';">
+      <img src="path/to/part1.jpg" alt="Part 1 Thumbnail">
+      <h2>Part 1: Data Acquisition and Preprocessing</h2>
+    </div>
+    <div class="part" onclick="location.href='#part2';">
+      <img src="path/to/part2.jpg" alt="Part 2 Thumbnail">
+      <h2>Part 2: Descriptor Calculation and EDA</h2>
+    </div>
+    <div class="part" onclick="location.href='#part3';">
+      <img src="path/to/part3.jpg" alt="Part 3 Thumbnail">
+      <h2>Part 3: Dataset Preparation</h2>
+    </div>
+    <div class="part" onclick="location.href='#part4';">
+      <img src="path/to/part4.jpg" alt="Part 4 Thumbnail">
+      <h2>Part 4: Regression Model with Random Forest</h2>
+    </div>
+    <div class="part" onclick="location.href='#part5';">
+      <img src="path/to/part5.jpg" alt="Part 5 Thumbnail">
+      <h2>Part 5: Algorithm Comparison</h2>
+    </div>
   </div>
 
-  <div class="section">
-    <h2>🧬 Part 2: Descriptor Calculation and Exploratory Data Analysis</h2>
+  <section id="part1">
+    <h2>Part 1: Data Acquisition and Preprocessing</h2>
+    <img src="path/to/part1-full.jpg" alt="Part 1 Full Image">
     <p>
-      Computed molecular descriptors to quantitatively represent compound properties and conducted exploratory data analysis to uncover patterns and relationships.
+      This section covers retrieval of bioactivity data from the ChEMBL database and the initial preprocessing required to clean and structure the data.
     </p>
-    <img src="assets/images/part2.png" alt="Descriptor Calculation Image">
-  </div>
+  </section>
 
-  <div class="section">
-    <h2>🧹 Part 3: Dataset Preparation for Machine Learning</h2>
+  <section id="part2">
+    <h2>Part 2: Descriptor Calculation and EDA</h2>
+    <img src="path/to/part2-full.jpg" alt="Part 2 Full Image">
     <p>
-      Prepared the dataset by cleaning, normalizing, and selecting relevant features, followed by splitting into training and testing sets.
+      Molecular descriptors are computed, and various exploratory data analysis techniques are applied to understand feature relationships and distributions.
     </p>
-    <img src="assets/images/part3.png" alt="Data Preparation Image">
-  </div>
+  </section>
 
-  <div class="section">
-    <h2>🌲 Part 4: Building a Regression Model Using Random Forest</h2>
+  <section id="part3">
+    <h2>Part 3: Dataset Preparation</h2>
+    <img src="path/to/part3-full.jpg" alt="Part 3 Full Image">
     <p>
-      Developed a regression model using the Random Forest algorithm to predict acetylcholinesterase inhibitory activity.
+      After EDA, the data is normalized, relevant features are selected, and the final dataset is split for training and testing ML models.
     </p>
-    <img src="assets/images/part4.png" alt="Random Forest Model Image">
-  </div>
+  </section>
 
-  <div class="section">
-    <h2>🤖 Part 5: Comparative Analysis of Machine Learning Algorithms</h2>
+  <section id="part4">
+    <h2>Part 4: Regression Model with Random Forest</h2>
+    <img src="path/to/part4-full.jpg" alt="Part 4 Full Image">
     <p>
-      Compared various machine learning algorithms, including Support Vector Machines and k-Nearest Neighbors, to identify the most effective model.
+      This section involves training a Random Forest regression model to predict pIC50 values of acetylcholinesterase inhibitors based on molecular descriptors.
     </p>
-    <img src="assets/images/part5.png" alt="Algorithm Comparison Image">
-  </div>
+  </section>
 
-  <div class="section">
-    <h2>🔗 Project Repository</h2>
+  <section id="part5">
+    <h2>Part 5: Algorithm Comparison</h2>
+    <img src="path/to/part5-full.jpg" alt="Part 5 Full Image">
     <p>
-      Explore the full project on GitHub: <a href="https://github.com/yourusername/yourrepository">GitHub Repository</a>
+      Multiple machine learning algorithms including SVR, KNN, and Linear Regression are compared to evaluate model performance for bioactivity prediction.
     </p>
-  </div>
-
+  </section>
 </body>
 </html>
