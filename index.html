@@ -97,28 +97,22 @@
       padding: 60px 30px;
       background: linear-gradient(145deg, #1a1a2e, #2f0a3c);
       box-shadow: inset 0 0 30px rgba(187, 134, 252, 0.2);
+      text-align: center;
     }
     section h2 {
-      text-align: center;
       margin-bottom: 20px;
-    }
-    section .image-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
     }
     section img {
       width: 100%;
       max-width: 500px;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      margin-bottom: 10px;
     }
     .caption {
-      text-align: center;
       font-size: 0.95em;
       color: #ccc;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
     p {
       line-height: 1.6;
@@ -138,6 +132,7 @@
 <body>
   <header>
     <h1>Computational Drug Discovery Portfolio</h1>
+    <h3>by Maneesh Kumar Paradarami</h3>
     <p>An end-to-end data science project exploring bioactivity prediction and cheminformatics-based drug discovery using ChEMBL data.</p>
   </header>
   <nav>
@@ -150,42 +145,71 @@
 
   <section id="part1">
     <h2>Part 1: Bioactivity Data Extraction</h2>
-    <p>In this section, we begin by identifying and retrieving data from the ChEMBL database for a set of acetylcholinesterase inhibitors. We narrow our focus on bioactivity measures, cleaning and organizing the dataset for downstream tasks. This foundational step ensures our model has reliable inputs. We assess the dataset’s distribution of active vs. inactive compounds.</p>
-    <img src="img1.png" alt="Frequency bar chart of active vs inactive compounds" />
+    <p>We start by retrieving relevant data from ChEMBL focused on acetylcholinesterase inhibitors. Ensuring the dataset is balanced, we distinguish active and inactive compounds.</p>
+    <p>This plot provides an overview of the frequency distribution of active vs inactive compounds across our dataset.</p>
+    <img src="img1.png" alt="Bar chart of activity" />
+    <div class="caption">Image 1: Frequency of Active vs Inactive compounds in ChEMBL data.</div>
   </section>
 
   <section id="part2">
     <h2>Part 2: Descriptor Calculation & EDA</h2>
-    <p>Here we dive into molecular descriptor calculations and exploratory data analysis. Descriptors such as logP, molecular weight (MW), and hydrogen bond donors are calculated for each compound. Statistical analyses and various boxplots help visualize bioactivity trends and inter-variable relationships, allowing better understanding of the chemical features affecting bioactivity.</p>
-    <img src="img2.png" alt="logP vs Mann Whitney U plot" />
-    <img src="img3.png" alt="pIC50 value boxplot for active/inactive" />
-    <img src="img4.png" alt="MW vs bioactivity boxplot" />
-    <img src="img5.png" alt="logP vs MW boxplot" />
-    <img src="img6.png" alt="H-bond donors vs bioactivity class boxplot" />
-    <img src="img7.png" alt="logP vs MW scatter plot" />
+
+    <p>We examine how lipophilicity (logP) varies across activity groups using statistical tests.</p>
+    <img src="img2.png" alt="LogP vs Mann-Whitney test" />
+    <div class="caption">Image 2: Mann-Whitney U test of logP between active/inactive compounds.</div>
+
+    <p>This boxplot shows how pIC50 values differ across compound classes.</p>
+    <img src="img3.png" alt="pIC50 value boxplot" />
+    <div class="caption">Image 3: Distribution of pIC50 values for actives vs inactives.</div>
+
+    <p>Molecular weight is another key feature in drug-likeness. Here we visualize its correlation with bioactivity.</p>
+    <img src="img4.png" alt="MW boxplot" />
+    <div class="caption">Image 4: Molecular weight vs bioactivity class.</div>
+
+    <p>We analyze combined effects of logP and MW on compound classification.</p>
+    <img src="img5.png" alt="LogP vs MW boxplot" />
+    <div class="caption">Image 5: Joint boxplot of logP and MW across activity labels.</div>
+
+    <p>Hydrogen bond donors can influence compound permeability. This boxplot shows the trends.</p>
+    <img src="img6.png" alt="H-donors vs activity" />
+    <div class="caption">Image 6: Number of H-donors vs bioactivity class.</div>
+
+    <p>This scatter plot shows the continuous relationship between logP and MW.</p>
+    <img src="img7.png" alt="Scatter plot logP vs MW" />
+    <div class="caption">Image 7: Scatter plot of logP vs Molecular Weight.</div>
   </section>
 
   <section id="part3">
     <h2>Part 3: Data Preparation</h2>
-    <p>With our descriptors computed and relationships analyzed, this section is dedicated to preparing the final dataset for machine learning. We normalize values, remove outliers, and format our features to align with regression model requirements. This ensures consistency and robustness in the next modeling phase.</p>
+    <p>To prepare the data for modeling, we normalize numerical features, clean missing values, and engineer new ones. This creates a stable foundation for training ML models by minimizing biases introduced by outliers and unscaled variables.</p>
   </section>
 
   <section id="part4">
     <h2>Part 4: Regression Modeling</h2>
-    <p>In this section, we build a regression model using Random Forest to predict pIC50 values — a measure of compound potency. We assess predictions through comparison with experimental values and visualize how well our model captures trends using regression lines and residual plots.</p>
-    <img src="img8.png" alt="Predicted vs Experimental pIC50 scatter plot with regression line" />
+
+    <p>The Random Forest regression model is trained to predict pIC50 based on computed molecular descriptors. Below is the regression line showing predicted vs actual values.</p>
+    <img src="img8.png" alt="Regression performance plot" />
+    <div class="caption">Image 8: Predicted vs Experimental pIC50 with regression line.</div>
   </section>
 
   <section id="part5">
     <h2>Part 5: Model Comparison</h2>
-    <p>We compare multiple machine learning algorithms including Random Forest, Support Vector Regression, and others to evaluate which best models the relationship between chemical descriptors and bioactivity. Performance metrics and charts offer insight into trade-offs between accuracy and generalization.</p>
-    <img src="img9.png" alt="Comparison of model performances" />
-    <img src="img10.png" alt="Model comparison continued" />
-    <img src="img11.png" alt="Extended model performance comparison" />
+
+    <p>We evaluate multiple regression algorithms to determine the most effective model. Here we observe how different models perform across metrics like RMSE and R^2.</p>
+    <img src="img9.png" alt="Model performance bar chart" />
+    <div class="caption">Image 9: Comparison of multiple regression models.</div>
+
+    <p>This chart compares predicted values across models, showing relative consistency and outliers.</p>
+    <img src="img10.png" alt="Model prediction comparison" />
+    <div class="caption">Image 10: Predicted pIC50 across different models.</div>
+
+    <p>Lastly, we examine variance and robustness of each model’s performance across the test set.</p>
+    <img src="img11.png" alt="Extended model comparison" />
+    <div class="caption">Image 11: Extended performance metrics for ensemble and baseline models.</div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Maneesh Kumar Paradarami | Built with HTML, CSS, and ❤️ for drug discovery.</p>
+    <p>2025 Maneesh Kumar Paradarami | Built with HTML, CSS, and ❤️ for drug discovery.</p>
   </footer>
 </body>
 </html>
