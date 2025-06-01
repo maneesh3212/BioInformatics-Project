@@ -11,11 +11,36 @@
       background: linear-gradient(135deg, #0b0c2a, #1f003b);
       color: #f0f0f0;
       scroll-behavior: smooth;
+      position: relative;
+      overflow-x: hidden;
+    }
+    body::before, body::after {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, #bb86fc55, transparent);
+      z-index: 0;
+      animation: float 8s ease-in-out infinite;
+    }
+    body::before {
+      top: 10%;
+      left: 5%;
+    }
+    body::after {
+      bottom: 10%;
+      right: 5%;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
     }
     header {
       background: url('path/to/your/background-image.jpg') center/cover no-repeat;
       padding: 60px 30px;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
     header h1 {
       font-size: 3em;
@@ -65,45 +90,10 @@
       color: #ffffff;
       box-shadow: 0 0 10px #bb86fc, 0 0 20px #bb86fc66;
     }
-    .section-preview {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      padding: 40px;
-      background: linear-gradient(145deg, #1a0029, #2c003d);
-    }
-    .part {
-      width: 300px;
-      margin: 20px;
-      background: linear-gradient(145deg, #2d0043, #1c002c);
-      padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 0 15px rgba(187, 134, 252, 0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .part:hover {
-      transform: scale(1.05);
-      cursor: pointer;
-      box-shadow: 0 0 25px rgba(255, 0, 255, 0.6);
-    }
-    .part img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-    .part h2 {
-      font-size: 1.2em;
-    }
     section {
       padding: 60px 30px;
       background: linear-gradient(145deg, #1a1a2e, #2f0a3c);
       box-shadow: inset 0 0 30px rgba(187, 134, 252, 0.2);
-    }
-    section:nth-of-type(odd) {
-      background: linear-gradient(145deg, #2f0a3c, #3f003f);
-    }
-    section:nth-of-type(even) {
-      background: linear-gradient(145deg, #1a1a2e, #290042);
     }
     section h2 {
       text-align: center;
@@ -111,21 +101,24 @@
     }
     section img {
       width: 100%;
-      max-width: 800px;
+      max-width: 600px;
       display: block;
       margin: 20px auto;
       border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
     }
     p {
       line-height: 1.6;
       font-size: 1.05em;
+      max-width: 800px;
+      margin: auto;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>🧬 Computational Drug Discovery Project</h1>
-    <p>A journey through bioactivity data, molecular descriptors, and machine learning for predicting acetylcholinesterase inhibition.</p>
+    <h1>Computational Drug Discovery Portfolio</h1>
+    <p>An end-to-end data science project exploring bioactivity prediction and cheminformatics-based drug discovery using ChEMBL data.</p>
   </header>
   <nav>
     <a href="#part1">Part 1</a>
@@ -134,58 +127,41 @@
     <a href="#part4">Part 4</a>
     <a href="#part5">Part 5</a>
   </nav>
-  <div class="section-preview">
-    <div class="part" onclick="location.href='#part1'">
-      <h2>📥 Part 1: Download Bioactivity Data</h2>
-    </div>
-    <div class="part" onclick="location.href='#part2'">
-      <h2>🧪 Part 2: Descriptor Calculation</h2>
-      <img src="img1.png" alt="Descriptor Calculation Graph">
-    </div>
-    <div class="part" onclick="location.href='#part3'">
-      <h2>📊 Part 3: Exploratory Data Analysis</h2>
-    </div>
-    <div class="part" onclick="location.href='#part4'">
-      <h2>🌲 Part 4: Random Forest Regression</h2>
-      <img src="img2.png" alt="Random Forest Results">
-    </div>
-    <div class="part" onclick="location.href='#part5'">
-      <h2>🤖 Part 5: ML Algorithm Comparison</h2>
-      <img src="img3.png" alt="Model Comparison Chart">
-    </div>
-  </div>
 
   <section id="part1">
-    <h2>📥 Part 1: Download Bioactivity Data</h2>
-    <p>This section initiates the project by retrieving bioactivity data related to acetylcholinesterase inhibition from the ChEMBL database. The extracted dataset includes compound identifiers and their corresponding inhibition values. This foundational data forms the backbone for our subsequent computational analysis.</p>
+    <h2>Part 1: Bioactivity Data Extraction</h2>
+    <p>In this section, we begin by identifying and retrieving data from the ChEMBL database for a set of acetylcholinesterase inhibitors. We narrow our focus on bioactivity measures, cleaning and organizing the dataset for downstream tasks. This foundational step ensures our model has reliable inputs. We assess the dataset’s distribution of active vs. inactive compounds.</p>
+    <img src="img1.png" alt="Frequency bar chart of active vs inactive compounds" />
   </section>
 
   <section id="part2">
-    <h2>🧪 Part 2: Descriptor Calculation</h2>
-    <p>Using cheminformatics tools, we computed molecular descriptors that capture structural and physicochemical properties of each compound. These descriptors are essential for quantitative analysis and machine learning models. Visuals of descriptor distributions and examples illustrate their relevance in drug discovery.</p>
-    <img src="img4.png" alt="Descriptors Heatmap">
-    <img src="img5.png" alt="Descriptor Histograms">
+    <h2>Part 2: Descriptor Calculation & EDA</h2>
+    <p>Here we dive into molecular descriptor calculations and exploratory data analysis. Descriptors such as logP, molecular weight (MW), and hydrogen bond donors are calculated for each compound. Statistical analyses and various boxplots help visualize bioactivity trends and inter-variable relationships, allowing better understanding of the chemical features affecting bioactivity.</p>
+    <img src="img2.png" alt="logP vs Mann Whitney U plot" />
+    <img src="img3.png" alt="pIC50 value boxplot for active/inactive" />
+    <img src="img4.png" alt="MW vs bioactivity boxplot" />
+    <img src="img5.png" alt="logP vs MW boxplot" />
+    <img src="img6.png" alt="H-bond donors vs bioactivity class boxplot" />
+    <img src="img7.png" alt="logP vs MW scatter plot" />
   </section>
 
   <section id="part3">
-    <h2>📊 Part 3: Exploratory Data Analysis</h2>
-    <p>In this phase, we explored the relationships between different molecular descriptors and bioactivity values using correlation matrices, pair plots, and distribution charts. These insights guided feature selection and helped understand the underlying patterns in the data.</p>
+    <h2>Part 3: Data Preparation</h2>
+    <p>With our descriptors computed and relationships analyzed, this section is dedicated to preparing the final dataset for machine learning. We normalize values, remove outliers, and format our features to align with regression model requirements. This ensures consistency and robustness in the next modeling phase.</p>
   </section>
 
   <section id="part4">
-    <h2>🌲 Part 4: Random Forest Regression</h2>
-    <p>We built a regression model using the Random Forest algorithm to predict pIC50 values based on molecular descriptors. Model performance was evaluated using standard metrics such as RMSE and R². Results show the importance of key descriptors in predicting inhibition potency.</p>
-    <img src="img6.png" alt="Random Forest Performance">
-    <img src="img7.png" alt="Feature Importance Bar Chart">
+    <h2>Part 4: Regression Modeling</h2>
+    <p>In this section, we build a regression model using Random Forest to predict pIC50 values — a measure of compound potency. We assess predictions through comparison with experimental values and visualize how well our model captures trends using regression lines and residual plots.</p>
+    <img src="img8.png" alt="Predicted vs Experimental pIC50 scatter plot with regression line" />
   </section>
 
   <section id="part5">
-    <h2>🤖 Part 5: ML Algorithm Comparison</h2>
-    <p>Finally, we compared several machine learning algorithms—including linear regression, ridge regression, decision trees, and support vector machines—to benchmark model performance. This comprehensive evaluation informed us of the most effective approach for this dataset and application.</p>
-    <img src="img8.png" alt="Algorithm Comparison Plot">
-    <img src="img9.png" alt="Validation Metrics">
-    <img src="img10.png" alt="Model Accuracy Visualization">
-    <img src="img11.png" alt="Predicted vs Actual Scatter">
+    <h2>Part 5: Model Comparison</h2>
+    <p>We compare multiple machine learning algorithms including Random Forest, Support Vector Regression, and others to evaluate which best models the relationship between chemical descriptors and bioactivity. Performance metrics and charts offer insight into trade-offs between accuracy and generalization.</p>
+    <img src="img9.png" alt="Comparison of model performances" />
+    <img src="img10.png" alt="Model comparison continued" />
+    <img src="img11.png" alt="Extended model performance comparison" />
   </section>
 </body>
 </html>
