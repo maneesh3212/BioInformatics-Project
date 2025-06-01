@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0d0d0d;
+      background: linear-gradient(135deg, #0b0c2a, #1f003b);
       color: #f0f0f0;
       scroll-behavior: smooth;
     }
@@ -29,7 +29,8 @@
     nav {
       display: flex;
       justify-content: center;
-      background-color: #1a1a1a;
+      background-color: rgba(26, 26, 26, 0.85);
+      backdrop-filter: blur(10px);
       padding: 10px;
       position: sticky;
       top: 0;
@@ -40,29 +41,54 @@
       margin: 0 20px;
       text-decoration: none;
       font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background-color: #bb86fc;
+      transition: width 0.3s ease, left 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+    nav a:hover {
+      background: radial-gradient(circle at top left, #bb86fc44, #2c003d33);
+      color: #ffffff;
+      box-shadow: 0 0 10px #bb86fc, 0 0 20px #bb86fc66;
     }
     .section-preview {
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;
       padding: 40px;
-      background-color: #121212;
+      background: linear-gradient(145deg, #1a0029, #2c003d);
     }
     .part {
       width: 300px;
       margin: 20px;
-      background: #1e1e1e;
+      background: linear-gradient(145deg, #2d0043, #1c002c);
       padding: 20px;
-      border-radius: 12px;
-      transition: transform 0.3s;
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(187, 134, 252, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
     .part:hover {
       transform: scale(1.05);
       cursor: pointer;
+      box-shadow: 0 0 25px rgba(255, 0, 255, 0.6);
     }
     .part img {
       width: 100%;
-      border-radius: 8px;
+      border-radius: 10px;
       margin-bottom: 15px;
     }
     .part h2 {
@@ -70,7 +96,8 @@
     }
     section {
       padding: 60px 30px;
-      background-color: #181818;
+      background: linear-gradient(145deg, #1a1a2e, #2f0a3c);
+      box-shadow: inset 0 0 30px rgba(187, 134, 252, 0.2);
     }
     section h2 {
       text-align: center;
@@ -81,6 +108,11 @@
       max-width: 800px;
       display: block;
       margin: 20px auto;
+      border-radius: 12px;
+    }
+    p {
+      line-height: 1.6;
+      font-size: 1.05em;
     }
   </style>
 </head>
