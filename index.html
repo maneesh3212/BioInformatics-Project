@@ -86,81 +86,80 @@
 </head>
 <body>
   <header>
-    <h1>Computational Drug Discovery Using Machine Learning</h1>
+    <h1>🧬 Computational Drug Discovery Using Machine Learning</h1>
     <p>
-      🧪 Part 1: Data Acquisition and Preprocessing
-      In this initial phase, we obtained bioactivity data related to acetylcholinesterase (AChE) inhibition from the ChEMBL database — a curated repository of bioactive molecules. We filtered the dataset to include only human targets and standardized the units of measurement for bioactivity (IC50). Additionally, we cleaned the data to remove nulls, duplicates, and outliers, ensuring that it was ready for downstream processing. This step lays the foundation for a reliable and meaningful machine learning pipeline by ensuring the data’s integrity and relevance.
+      Explore the prediction of acetylcholinesterase inhibitors through machine learning. This portfolio project includes data acquisition, descriptor calculation, EDA, model building, and algorithm comparisons.
     </p>
   </header>
 
   <nav>
-    <a href="#part1">Part 1</a>
-    <a href="#part2">Part 2</a>
-    <a href="#part3">Part 3</a>
-    <a href="#part4">Part 4</a>
-    <a href="#part5">Part 5</a>
+    <a href="#part1">📥 Part 1</a>
+    <a href="#part2">🧪 Part 2</a>
+    <a href="#part3">📊 Part 3</a>
+    <a href="#part4">🌲 Part 4</a>
+    <a href="#part5">⚖️ Part 5</a>
   </nav>
 
   <div class="section-preview">
     <div class="part" onclick="location.href='#part1';">
       <img src="path/to/part1.jpg" alt="Part 1 Thumbnail">
-      <h2>Part 1: Data Acquisition and Preprocessing</h2>
+      <h2>📥 Part 1: Data Acquisition and Preprocessing</h2>
     </div>
     <div class="part" onclick="location.href='#part2';">
       <img src="path/to/part2.jpg" alt="Part 2 Thumbnail">
-      <h2>Part 2: Descriptor Calculation and EDA</h2>
+      <h2>🧪 Part 2: Descriptor Calculation and EDA</h2>
     </div>
     <div class="part" onclick="location.href='#part3';">
       <img src="path/to/part3.jpg" alt="Part 3 Thumbnail">
-      <h2>Part 3: Dataset Preparation</h2>
+      <h2>📊 Part 3: Dataset Preparation</h2>
     </div>
     <div class="part" onclick="location.href='#part4';">
       <img src="path/to/part4.jpg" alt="Part 4 Thumbnail">
-      <h2>Part 4: Regression Model with Random Forest</h2>
+      <h2>🌲 Part 4: Regression Model with Random Forest</h2>
     </div>
     <div class="part" onclick="location.href='#part5';">
       <img src="path/to/part5.jpg" alt="Part 5 Thumbnail">
-      <h2>Part 5: Algorithm Comparison</h2>
+      <h2>⚖️ Part 5: Algorithm Comparison</h2>
     </div>
   </div>
 
   <section id="part1">
-    <h2>Part 1: Data Acquisition and Preprocessing</h2>
+    <h2>📥 Part 1: Data Acquisition and Preprocessing</h2>
     <img src="path/to/part1-full.jpg" alt="Part 1 Full Image">
     <p>
-      This section covers retrieval of bioactivity data from the ChEMBL database and the initial preprocessing required to clean and structure the data.
+      In this initial phase, we obtained bioactivity data related to acetylcholinesterase (AChE) inhibition from the ChEMBL database — a curated repository of bioactive molecules. We filtered the dataset to include only human targets and standardized the units of measurement for bioactivity (IC50). Additionally, we cleaned the data to remove nulls, duplicates, and outliers, ensuring that it was ready for downstream processing. This step lays the foundation for a reliable and meaningful machine learning pipeline by ensuring the data’s integrity and relevance.
     </p>
   </section>
 
   <section id="part2">
-    <h2>Part 2: Descriptor Calculation and EDA</h2>
+    <h2>🧪 Part 2: Descriptor Calculation and Exploratory Data Analysis (EDA)</h2>
     <img src="path/to/part2-full.jpg" alt="Part 2 Full Image">
     <p>
-      Molecular descriptors are computed, and various exploratory data analysis techniques are applied to understand feature relationships and distributions.
+      After preparing the dataset, we computed a series of molecular descriptors that numerically represent chemical properties such as molecular weight, lipophilicity (LogP), number of hydrogen bond donors, and more. These descriptors serve as the features for our machine learning models. We then conducted exploratory data analysis to understand the distribution and correlation of these descriptors across active and inactive compounds. Visualizations like scatter plots and box plots revealed important insights — for example, active compounds tend to occupy a distinct chemical space compared to inactive ones, especially in terms of LogP and molecular weight.
     </p>
   </section>
 
   <section id="part3">
-    <h2>Part 3: Dataset Preparation</h2>
+    <h2>📊 Part 3: Dataset Preparation for Machine Learning</h2>
     <img src="path/to/part3-full.jpg" alt="Part 3 Full Image">
     <p>
-      After EDA, the data is normalized, relevant features are selected, and the final dataset is split for training and testing ML models.
+      Once EDA confirmed the relevance of the descriptors, we proceeded to prepare the data for machine learning. This included normalizing continuous variables, encoding categorical labels (active/inactive), and selecting the most informative features based on domain knowledge and correlation analysis. The final dataset was then split into training and testing subsets to ensure unbiased evaluation. By preparing a clean and structured dataset, we established a robust foundation for model training and ensured reproducibility.
     </p>
   </section>
 
   <section id="part4">
-    <h2>Part 4: Regression Model with Random Forest</h2>
+    <h2>🌲 Part 4: Regression Model with Random Forest</h2>
     <img src="path/to/part4-full.jpg" alt="Part 4 Full Image">
     <p>
-      This section involves training a Random Forest regression model to predict pIC50 values of acetylcholinesterase inhibitors based on molecular descriptors.
+      In this phase, we trained a Random Forest regression model to predict the pIC50 values of the compounds. Random Forest was selected for its robustness to overfitting and ability to capture complex, non-linear relationships. The model was trained on the molecular descriptors and evaluated using key regression metrics such as R-squared (R²) and Root Mean Squared Error (RMSE). The results demonstrated strong predictive performance, indicating that molecular descriptors can be effectively used to model compound bioactivity.
     </p>
   </section>
 
   <section id="part5">
-    <h2>Part 5: Algorithm Comparison</h2>
+    <h2>⚖️ Part 5: Comparing Machine Learning Algorithms</h2>
     <img src="path/to/part5-full.jpg" alt="Part 5 Full Image">
     <p>
-      Multiple machine learning algorithms including SVR, KNN, and Linear Regression are compared to evaluate model performance for bioactivity prediction.
+      To validate the model’s performance, we compared the Random Forest model with other regression algorithms including Support Vector Regression (SVR), K-Nearest Neighbors (KNN), and Linear Regression. Each model was trained and evaluated using the same dataset and metrics. Through this comparative analysis, we were able to highlight the strengths and limitations of each algorithm in the context of bioactivity prediction. The comparison also underscored the importance of model selection based on the complexity and nature of the data.
     </p>
   </section>
 </body>
