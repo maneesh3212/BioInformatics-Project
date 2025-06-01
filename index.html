@@ -13,6 +13,10 @@
       scroll-behavior: smooth;
       position: relative;
       overflow-x: hidden;
+      background-image: url('img12.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
     }
     body::before, body::after {
       content: "";
@@ -36,7 +40,6 @@
       50% { transform: translateY(-20px); }
     }
     header {
-      background: url('path/to/your/background-image.jpg') center/cover no-repeat;
       padding: 60px 30px;
       text-align: center;
       position: relative;
@@ -99,19 +102,36 @@
       text-align: center;
       margin-bottom: 20px;
     }
+    section .image-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
     section img {
       width: 100%;
-      max-width: 600px;
-      display: block;
-      margin: 20px auto;
+      max-width: 500px;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+    .caption {
+      text-align: center;
+      font-size: 0.95em;
+      color: #ccc;
+      margin-bottom: 30px;
     }
     p {
       line-height: 1.6;
       font-size: 1.05em;
       max-width: 800px;
-      margin: auto;
+      margin: 0 auto 30px auto;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: linear-gradient(to right, #1f003b, #0b0c2a);
+      color: #ccc;
+      font-size: 0.9em;
     }
   </style>
 </head>
@@ -163,5 +183,9 @@
     <img src="img10.png" alt="Model comparison continued" />
     <img src="img11.png" alt="Extended model performance comparison" />
   </section>
+
+  <footer>
+    <p>&copy; 2025 Maneesh Kumar Paradarami | Built with HTML, CSS, and ❤️ for drug discovery.</p>
+  </footer>
 </body>
 </html>
